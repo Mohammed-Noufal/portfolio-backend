@@ -28,6 +28,12 @@ public class ProjectService
         projectRepository.deleteById(id);
     }
 
+    public Project getProjectById(Long id) 
+    {
+    return projectRepo.findById(id)
+            .orElseThrow(() -> new RuntimeException("Project not found"));
+    }
+    
     public Project updateProj(Long id,Project updatedProj)
     {
        Project existingProj = projectRepository.findById(id).get();
